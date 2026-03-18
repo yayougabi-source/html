@@ -1,45 +1,91 @@
-~<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشروعي الأول | My First Project</title>
+    <title>Smart HSE Analyzer - نظام تصاريح العمل</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        body { font-family: 'Tajawal', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-900">
 
-    <header class="bg-white shadow-sm p-6 text-center">
-        <h1 class="text-3xl font-bold text-blue-600">مرحباً بك في عالم البرمجة 🚀</h1>
-    </header>
-
-    <main class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-md text-center">
-        <p class="text-xl mb-6">هذه الصفحة تم توليدها بواسطة <span class="font-bold text-purple-600">Gemini</span> ورفعها عبر <span class="font-bold text-black">GitHub</span> إلى <span class="font-bold text-blue-500">Vercel</span>.</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-            <div class="p-4 border rounded-lg bg-blue-50">
-                <h3 class="font-bold mb-2 text-blue-700 underline">التوليد</h3>
-                <p class="text-sm">كتابة البرومبت والحصول على الكود.</p>
-            </div>
-            <div class="p-4 border rounded-lg bg-green-50">
-                <h3 class="font-bold mb-2 text-green-700 underline">التطوير</h3>
-                <p class="text-sm">التعديل باستخدام VS Code باحترافية.</p>
-            </div>
-            <div class="p-4 border rounded-lg bg-purple-50">
-                <h3 class="font-bold mb-2 text-purple-700 underline">النشر</h3>
-                <p class="text-sm">الرفع إلى GitHub والاستضافة على Vercel.</p>
+    <nav class="bg-slate-800 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold tracking-tight">
+                <i class="fas fa-shield-halved ml-2 text-blue-400"></i> Smart HSE Analyzer
+            </h1>
+            <div class="flex items-center space-x-reverse space-x-4">
+                <span class="text-sm bg-blue-600 px-3 py-1 rounded-full uppercase">Enterprise Grade</span>
             </div>
         </div>
+    </nav>
 
-        <button onclick="alert('تهانينا! لقد قمت بتشغيل أول زر في موقعك الجديد')" class="mt-10 px-8 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-            اضغط هنا لتجربة التفاعل
-        </button>
+    <main class="container mx-auto mt-10 p-6">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-800">إصدار تصاريح العمل الرقمية</h2>
+            <p class="text-gray-600 mt-2 text-lg italic">اختر نوع العمل لبدء تحليل المخاطر (EVRP)</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-red-500 flex flex-col items-center">
+                <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700">Permit à chaud</h3>
+                <p class="text-gray-500 text-sm mt-2 font-light">الأعمال الساخنة (لحام، قطع...)</p>
+            </button>
+
+            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-blue-500 flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center">Permit à froid</h3>
+                <p class="text-gray-500 text-sm mt-2 font-light">الأعمال الباردة والصيانة العامة</p>
+            </button>
+
+            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-emerald-500 flex flex-col items-center">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-ladder-water"></i>
+                </div>
+                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center">Permit Travaux en hauteur</h3>
+                <p class="text-gray-500 text-sm mt-2 font-light">العمل على المرتفعات (سقالات...)</p>
+            </button>
+
+            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-orange-500 flex flex-col items-center">
+                <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-crane"></i>
+                </div>
+                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center uppercase">Permit Levage</h3>
+                <p class="text-gray-500 text-sm mt-2 font-light">عمليات الرفع والحمولات الكبيرة</p>
+            </button>
+
+            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-yellow-600 flex flex-col items-center">
+                <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-shovels"></i>
+                </div>
+                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center uppercase">Permit d'Excavation</h3>
+                <p class="text-gray-500 text-sm mt-2 font-light">أعمال الحفر والردم</p>
+            </button>
+
+            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-purple-500 flex flex-col items-center">
+                <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+                    <i class="fas fa-door-closed"></i>
+                </div>
+                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center uppercase">Espace confiné</h3>
+                <p class="text-gray-500 text-sm mt-2 font-light">الدخول للأماكن المغلقة (صهاريج...)</p>
+            </button>
+
+        </div>
     </main>
 
-    <footer class="mt-20 text-center text-gray-500 text-sm pb-10">
-        تم التطوير بواسطة يوسف كـ. | 2026
+    <footer class="mt-20 p-8 text-center text-gray-400 text-xs border-t border-gray-200">
+        <p>© 2026 Smart HSE Analyzer | نظام مخصص للامتثال للقوانين الجزائرية</p>
+        <p class="mt-2">تطوير بواسطة يوسف كـ. - HSE Professional Dashboard</p>
     </footer>
 
 </body>
