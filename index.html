@@ -9,84 +9,100 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
         body { font-family: 'Tajawal', sans-serif; }
+        .modal { transition: opacity 0.25s ease; }
+        body.modal-active { overflow-x: hidden; overflow-y: visible !important; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
-    <nav class="bg-slate-800 text-white p-4 shadow-lg">
+    <nav class="bg-slate-800 text-white p-4 shadow-lg sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-xl font-bold tracking-tight">
                 <i class="fas fa-shield-halved ml-2 text-blue-400"></i> Smart HSE Analyzer
             </h1>
-            <div class="flex items-center space-x-reverse space-x-4">
-                <span class="text-sm bg-blue-600 px-3 py-1 rounded-full uppercase">Enterprise Grade</span>
-            </div>
+            <span class="text-sm bg-blue-600 px-3 py-1 rounded-full uppercase">Enterprise Grade</span>
         </div>
     </nav>
 
     <main class="container mx-auto mt-10 p-6">
         <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-800">إصدار تصاريح العمل الرقمية</h2>
-            <p class="text-gray-600 mt-2 text-lg italic">اختر نوع العمل لبدء تحليل المخاطر (EVRP)</p>
+            <h2 class="text-3xl font-bold text-slate-800 tracking-tight">إصدار تصاريح العمل الرقمية</h2>
+            <p class="text-gray-600 mt-2 text-lg italic uppercase">Système de Permis de Travail (PTW)</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-red-500 flex flex-col items-center">
+            <button onclick="toggleModal()" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-red-500 flex flex-col items-center">
                 <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
                     <i class="fas fa-fire"></i>
                 </div>
-                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700">Permit à chaud</h3>
-                <p class="text-gray-500 text-sm mt-2 font-light">الأعمال الساخنة (لحام، قطع...)</p>
+                <h3 class="text-xl font-bold uppercase text-slate-700">Permit à chaud</h3>
+                <p class="text-gray-500 text-sm mt-2 font-light italic">Appuyez لإصدار تصريح عمل ساخن</p>
             </button>
 
-            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-blue-500 flex flex-col items-center text-center">
-                <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-snowflake"></i>
-                </div>
-                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center">Permit à froid</h3>
-                <p class="text-gray-500 text-sm mt-2 font-light">الأعمال الباردة والصيانة العامة</p>
-            </button>
-
-            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-emerald-500 flex flex-col items-center">
-                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-ladder-water"></i>
-                </div>
-                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center">Permit Travaux en hauteur</h3>
-                <p class="text-gray-500 text-sm mt-2 font-light">العمل على المرتفعات (سقالات...)</p>
-            </button>
-
-            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-orange-500 flex flex-col items-center">
-                <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-crane"></i>
-                </div>
-                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center uppercase">Permit Levage</h3>
-                <p class="text-gray-500 text-sm mt-2 font-light">عمليات الرفع والحمولات الكبيرة</p>
-            </button>
-
-            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-yellow-600 flex flex-col items-center">
-                <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-shovels"></i>
-                </div>
-                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center uppercase">Permit d'Excavation</h3>
-                <p class="text-gray-500 text-sm mt-2 font-light">أعمال الحفر والردم</p>
-            </button>
-
-            <button class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-purple-500 flex flex-col items-center">
-                <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-door-closed"></i>
-                </div>
-                <h3 class="text-xl font-bold uppercase tracking-wide text-slate-700 text-center uppercase">Espace confiné</h3>
-                <p class="text-gray-500 text-sm mt-2 font-light">الدخول للأماكن المغلقة (صهاريج...)</p>
-            </button>
-
+            <div class="opacity-60 bg-white p-8 rounded-2xl border-b-4 border-blue-500 flex flex-col items-center grayscale">
+                <i class="fas fa-snowflake text-blue-500 text-3xl mb-4"></i>
+                <h3 class="text-xl font-bold uppercase text-slate-700">Permit à froid</h3>
+            </div>
+            <div class="opacity-60 bg-white p-8 rounded-2xl border-b-4 border-emerald-500 flex flex-col items-center grayscale">
+                <i class="fas fa-ladder-water text-emerald-500 text-3xl mb-4"></i>
+                <h3 class="text-xl font-bold uppercase text-slate-700">Travaux en hauteur</h3>
+            </div>
         </div>
     </main>
 
-    <footer class="mt-20 p-8 text-center text-gray-400 text-xs border-t border-gray-200">
-        <p>© 2026 Smart HSE Analyzer | نظام مخصص للامتثال للقوانين الجزائرية</p>
-        <p class="mt-2">تطوير بواسطة يوسف كـ. - HSE Professional Dashboard</p>
-    </footer>
+    <div id="modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        
+        <div class="modal-container bg-white w-11/12 md:max-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto max-h-[90vh]">
+            <div class="modal-content py-6 px-8 text-right">
+                <div class="flex justify-between items-center pb-4 border-b">
+                    <p class="text-2xl font-bold text-red-600 uppercase">Détails: Permit à chaud</p>
+                    <div onclick="toggleModal()" class="modal-close cursor-pointer z-50">
+                        <i class="fas fa-times text-gray-500"></i>
+                    </div>
+                </div>
 
+                <form class="mt-4 space-y-4">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">المسؤول عن العمل (Supervisor)</label>
+                        <input type="text" placeholder="أدخل الاسم الكامل" class="w-full p-2 border rounded focus:ring-2 focus:ring-red-400 outline-none">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-2">مكان العمل (Location)</label>
+                        <select class="w-full p-2 border rounded outline-none">
+                            <option>Décanteur lamellaire</option>
+                            <option>Captage</option>
+                            <option>Bloc ADM</option>
+                            <option>Storage Spheres</option>
+                        </select>
+                    </div>
+
+                    <div class="bg-red-50 p-4 rounded-lg border-r-4 border-red-500">
+                        <label class="block text-red-700 font-bold mb-2"><i class="fas fa-exclamation-triangle ml-2"></i>تحليل المخاطر (EVRP)</label>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <label><input type="checkbox" class="ml-2"> غازات قابلة للاشتعال</label>
+                            <label><input type="checkbox" class="ml-2"> شرر متطاير</label>
+                            <label><input type="checkbox" class="ml-2"> حرارة عالية</label>
+                            <label><input type="checkbox" class="ml-2"> نقص الأكسجين</label>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="alert('تم إصدار التصريح بنجاح!')" class="w-full bg-red-600 text-white font-bold py-3 rounded hover:bg-red-700 transition">توليد تصريح العمل (Générer)</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal () {
+            const body = document.querySelector('body')
+            const modal = document.getElementById('modal')
+            modal.classList.toggle('opacity-0')
+            modal.classList.toggle('pointer-events-auto')
+            body.classList.toggle('modal-active')
+        }
+    </script>
 </body>
 </html>
