@@ -10,86 +10,110 @@
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
         body { font-family: 'Tajawal', sans-serif; }
         .modal { transition: opacity 0.25s ease; }
-        body.modal-active { overflow-x: hidden; overflow-y: visible !important; }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-50 text-gray-900">
 
-    <nav class="bg-slate-800 text-white p-4 shadow-lg sticky top-0 z-50">
+    <nav class="bg-slate-900 text-white p-4 shadow-xl sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold tracking-tight">
-                <i class="fas fa-shield-halved ml-2 text-blue-400"></i> Smart HSE Analyzer
+            <h1 class="text-xl font-bold tracking-tight flex items-center">
+                <i class="fas fa-shield-halved ml-2 text-red-500"></i> Smart HSE Analyzer
             </h1>
-            <span class="text-sm bg-blue-600 px-3 py-1 rounded-full uppercase">Enterprise Grade</span>
+            <span class="text-xs bg-red-600 px-3 py-1 rounded-full animate-pulse">ATEX COMPLIANT</span>
         </div>
     </nav>
 
     <main class="container mx-auto mt-10 p-6">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-800 tracking-tight">إصدار تصاريح العمل الرقمية</h2>
-            <p class="text-gray-600 mt-2 text-lg italic uppercase">Système de Permis de Travail (PTW)</p>
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-slate-800">نظام إصدار التصاريح (PTW)</h2>
+            <p class="text-gray-500 mt-2">وحدة التحكم في الأعمال الساخنة والمخاطر الكبرى</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <button onclick="toggleModal()" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border-b-4 border-red-500 flex flex-col items-center">
-                <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-fire"></i>
+        <div class="max-w-md mx-auto">
+            <button onclick="toggleModal()" class="w-full bg-white p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all border-r-8 border-red-600 flex flex-col items-center">
+                <div class="w-20 h-20 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center text-4xl mb-4">
+                    <i class="fas fa-burn"></i>
                 </div>
-                <h3 class="text-xl font-bold uppercase text-slate-700">Permit à chaud</h3>
-                <p class="text-gray-500 text-sm mt-2 font-light italic">Appuyez لإصدار تصريح عمل ساخن</p>
+                <h3 class="text-2xl font-bold text-slate-800 uppercase">Permit à chaud</h3>
+                <p class="text-red-500 font-bold mt-2 text-sm italic">اضغط لبدء فحص الغاز وإصدار التصريح</p>
             </button>
-
-            <div class="opacity-60 bg-white p-8 rounded-2xl border-b-4 border-blue-500 flex flex-col items-center grayscale">
-                <i class="fas fa-snowflake text-blue-500 text-3xl mb-4"></i>
-                <h3 class="text-xl font-bold uppercase text-slate-700">Permit à froid</h3>
-            </div>
-            <div class="opacity-60 bg-white p-8 rounded-2xl border-b-4 border-emerald-500 flex flex-col items-center grayscale">
-                <i class="fas fa-ladder-water text-emerald-500 text-3xl mb-4"></i>
-                <h3 class="text-xl font-bold uppercase text-slate-700">Travaux en hauteur</h3>
-            </div>
         </div>
     </main>
 
-    <div id="modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
-        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    <div id="modal" class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50 p-4">
+        <div class="modal-overlay absolute w-full h-full bg-slate-900 opacity-70"></div>
         
-        <div class="modal-container bg-white w-11/12 md:max-w-xl mx-auto rounded shadow-lg z-50 overflow-y-auto max-h-[90vh]">
+        <div class="modal-container bg-white w-full max-w-2xl mx-auto rounded-2xl shadow-2xl z-50 overflow-y-auto max-h-[95vh]">
             <div class="modal-content py-6 px-8 text-right">
                 <div class="flex justify-between items-center pb-4 border-b">
-                    <p class="text-2xl font-bold text-red-600 uppercase">Détails: Permit à chaud</p>
-                    <div onclick="toggleModal()" class="modal-close cursor-pointer z-50">
+                    <div class="text-right">
+                        <p class="text-2xl font-bold text-red-700">تحليل مخاطر العمل الساخن</p>
+                        <p class="text-xs text-gray-400">ID: PTW-2026-ALGERIA</p>
+                    </div>
+                    <div onclick="toggleModal()" class="cursor-pointer p-2 hover:bg-gray-100 rounded-full">
                         <i class="fas fa-times text-gray-500"></i>
                     </div>
                 </div>
 
-                <form class="mt-4 space-y-4">
-                    <div>
-                        <label class="block text-gray-700 font-bold mb-2">المسؤول عن العمل (Supervisor)</label>
-                        <input type="text" placeholder="أدخل الاسم الكامل" class="w-full p-2 border rounded focus:ring-2 focus:ring-red-400 outline-none">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-gray-700 font-bold mb-2">مكان العمل (Location)</label>
-                        <select class="w-full p-2 border rounded outline-none">
-                            <option>Décanteur lamellaire</option>
-                            <option>Captage</option>
-                            <option>Bloc ADM</option>
-                            <option>Storage Spheres</option>
-                        </select>
-                    </div>
-
-                    <div class="bg-red-50 p-4 rounded-lg border-r-4 border-red-500">
-                        <label class="block text-red-700 font-bold mb-2"><i class="fas fa-exclamation-triangle ml-2"></i>تحليل المخاطر (EVRP)</label>
-                        <div class="grid grid-cols-2 gap-2 text-sm">
-                            <label><input type="checkbox" class="ml-2"> غازات قابلة للاشتعال</label>
-                            <label><input type="checkbox" class="ml-2"> شرر متطاير</label>
-                            <label><input type="checkbox" class="ml-2"> حرارة عالية</label>
-                            <label><input type="checkbox" class="ml-2"> نقص الأكسجين</label>
+                <form class="mt-6 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-1">الموقع العملي (Location)</label>
+                            <select class="w-full p-3 border-2 border-gray-100 rounded-xl focus:border-red-500 outline-none bg-gray-50">
+                                <option>Décanteur lamellaire</option>
+                                <option>Captage</option>
+                                <option>Bloc ADM</option>
+                                <option>Zone de Stockage (Sphères)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-bold mb-1">المشرف المسؤول</label>
+                            <input type="text" placeholder="اسم المهندس المشرف" class="w-full p-3 border-2 border-gray-100 rounded-xl outline-none bg-gray-50">
                         </div>
                     </div>
 
-                    <button type="button" onclick="alert('تم إصدار التصريح بنجاح!')" class="w-full bg-red-600 text-white font-bold py-3 rounded hover:bg-red-700 transition">توليد تصريح العمل (Générer)</button>
+                    <div class="bg-slate-800 p-6 rounded-2xl text-white">
+                        <h4 class="font-bold mb-4 flex items-center text-yellow-400">
+                            <i class="fas fa-gas-pump ml-2"></i> نتائج جهاز فحص الغاز (Gas Detector)
+                        </h4>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="text-center">
+                                <label class="block text-xs mb-1">Oxygen (O2 %)</label>
+                                <input type="number" step="0.1" placeholder="20.9" class="w-full p-2 rounded bg-slate-700 border border-slate-600 text-center text-green-400 font-bold">
+                            </div>
+                            <div class="text-center">
+                                <label class="block text-xs mb-1">LEL (%)</label>
+                                <input type="number" placeholder="0" class="w-full p-2 rounded bg-slate-700 border border-slate-600 text-center text-red-400 font-bold">
+                            </div>
+                            <div class="text-center">
+                                <label class="block text-xs mb-1">H2S (ppm)</label>
+                                <input type="number" placeholder="0" class="w-full p-2 rounded bg-slate-700 border border-slate-600 text-center text-yellow-400 font-bold">
+                            </div>
+                        </div>
+                        <p class="text-[10px] mt-3 text-gray-400 text-center">* يجب ألا تتجاوز نسبة LEL الـ 0% للأعمال الساخنة</p>
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-3">تحليل المخاطر الفوري (EVRP)</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center p-3 border rounded-xl hover:bg-red-50 cursor-pointer transition">
+                                <input type="checkbox" class="ml-2 w-4 h-4 accent-red-600"> شرر متطاير
+                            </label>
+                            <label class="flex items-center p-3 border rounded-xl hover:bg-red-50 cursor-pointer transition">
+                                <input type="checkbox" class="ml-2 w-4 h-4 accent-red-600"> إشعاع حراري
+                            </label>
+                            <label class="flex items-center p-3 border rounded-xl hover:bg-red-50 cursor-pointer transition">
+                                <input type="checkbox" class="ml-2 w-4 h-4 accent-red-600"> انفجار محتمل
+                            </label>
+                            <label class="flex items-center p-3 border rounded-xl hover:bg-red-50 cursor-pointer transition">
+                                <input type="checkbox" class="ml-2 w-4 h-4 accent-red-600"> غازات خانقة
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="alert('جاري توليد التصريح ونقله لقاعدة البيانات...')" class="w-full bg-red-600 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-red-700 transform active:scale-95 transition">
+                        توليد تصريح عمل آمن (Confirm PTW)
+                    </button>
                 </form>
             </div>
         </div>
@@ -101,7 +125,6 @@
             const modal = document.getElementById('modal')
             modal.classList.toggle('opacity-0')
             modal.classList.toggle('pointer-events-auto')
-            body.classList.toggle('modal-active')
         }
     </script>
 </body>
