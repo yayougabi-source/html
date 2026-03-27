@@ -1,28 +1,16 @@
-<script>
-    function sendSecurityAlert(lelValue) {
-        // هذه الوظيفة تحاكي إرسال رسالة للمدير عبر API
-        console.log("إرسال تنبيه أمني: محاولة إصدار تصريح بنسبة غاز " + lelValue + "%");
-        
-        // في النسخة المتقدمة، نربط هذا بـ EmailJS أو WhatsApp API
-        const adminPhone = "+213XXXXXXXXX"; // رقم مدير HSE
-        const message = `🚨 تنبيه أمني من Smart HSE: محاولة إصدار تصريح عمل ساخن بنسبة غاز خطيرة (${lelValue}%) في موقع Bloc ADM.`;
-        
-        // إظهار تنبيه للمستخدم بأنه تم إبلاغ الإدارة
-        const errorBox = document.getElementById('error-msg');
-        errorBox.innerHTML = `<i class="fas fa-exclamation-triangle ml-2"></i> تم حظر العملية وإرسال تقرير فوري لإدارة السلامة!`;
-    }
-
-    function validatePermit() {
-        const lelValue = document.getElementById('lel-input').value;
-        const errorMsg = document.getElementById('error-msg');
-
-        if (lelValue === "" || lelValue > 0) {
-            errorMsg.classList.remove('hidden');
-            // استدعاء نظام التنبيه فوراً
-            sendSecurityAlert(lelValue || "غير محددة");
-        } else {
-            alert("✅ تم التحقق بنجاح. التصريح آمن للإصدار.");
-            toggleModal();
-        }
-    }
-</script>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>HSE Check</title>
+</head>
+<body class="bg-gray-100 p-5">
+    <div class="max-w-lg mx-auto bg-white p-10 rounded-2xl shadow-lg text-center">
+        <i class="fas fa-tools text-5xl text-blue-500 mb-4"></i>
+        <h1 class="text-2xl font-bold">نظام GTP الرقمي قيد التحديث</h1>
+        <button onclick="location.reload()" class="mt-5 bg-blue-600 text-white px-6 py-2 rounded-lg">تحديث الصفحة</button>
+    </div>
+</body>
+</html>
